@@ -6,6 +6,7 @@ const NAV_ITEMS = [
   { to: "/calculator", label: "Calculator", end: false },
   { to: "/how-it-works", label: "How it works", end: false },
   { to: "/privacy", label: "Privacy", end: false },
+  { to: "/contact", label: "Contact", end: false },
 ];
 
 export function SiteHeader() {

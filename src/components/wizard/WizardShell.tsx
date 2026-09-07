@@ -194,6 +194,9 @@ export function WizardShell() {
         <Link to="/privacy" className="hover:underline">
           Privacy
         </Link>
+        <Link to="/contact" className="hover:underline">
+          Contact
+        </Link>
       </footer>
     </div>
   );

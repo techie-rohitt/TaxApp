@@ -5,6 +5,7 @@ import Calculator from "./pages/Calculator";
 import Result from "./pages/Result";
 import HowItWorks from "./pages/HowItWorks";
 import Privacy from "./pages/Privacy";
+import Contact from "./pages/Contact";
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
             <Route path="/result" element={<Result />} />
             <Route path="/how-it-works" element={<HowItWorks />} />
             <Route path="/privacy" element={<Privacy />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
       </div>

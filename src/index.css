@@ -7,37 +7,50 @@
 
 /*
   Design tokens — PRD §23.2 (colour) and §23.4 (spacing/radius).
+  Dark theme: the whole app is built on these custom properties (no
+  hardcoded Tailwind color utilities anywhere), so switching the palette
+  here is enough to re-skin every page and component.
 */
 :root {
-  --bg: #fbfbfa; /* warm off-white, not pure white */
-  --surface: #ffffff;
-  --surface-sunk: #f4f4f2;
-  --border: #e6e5e1;
-  --border-strong: #d3d2cd;
+  color-scheme: dark;
 
-  --text: #1a1a18;
-  --text-muted: #6b6a65;
-  /* Darkened from an earlier #9a9993 (2.86:1 on --surface) to clear WCAG AA's 4.5:1 for normal text. */
-  --text-faint: #77766f;
+  --bg: #0d1210; /* near-black, a hair of green in it */
+  --surface: #171d1a; /* cards sit a step brighter than the page */
+  --surface-sunk: #12181a; /* recessed panels nested inside a card */
+  --border: #262c27;
+  --border-strong: #3a423c;
 
-  --accent: #1f5e4b; /* deep green — money, calm, not fintech-blue */
-  --accent-soft: #e8f1ed;
-  --accent-text: #163f33;
+  --text: #eef1ef;
+  --text-muted: #a3aca6;
+  --text-faint: #8a938c;
 
-  /* Darkened from an earlier #7c5cbf (4.38:1 on --old-soft) to clear WCAG AA. */
-  --old-regime: #6a49ab;
-  --old-soft: #f1ecfa;
-  --new-regime: #1f5e4b; /* the accent green */
-  --new-soft: #e8f1ed;
+  --accent: #1f8f63; /* brightened for a dark ground; still the calm green */
+  --accent-soft: #132a1f;
+  --accent-text: #6fd9a8;
 
-  /* Darkened from an earlier #a66300 (4.34:1 on --warn-soft) to clear WCAG AA. */
-  --warn: #8f5500;
-  --warn-soft: #fdf3e3;
-  --error: #b4342b;
+  --old-regime: #c4a6f0; /* violet, lightened for a dark ground */
+  --old-soft: #241a33;
+  --new-regime: #6fd9a8; /* the accent green, lightened */
+  --new-soft: #132a1f;
+
+  --warn: #f0b93d;
+  --warn-soft: #3a2a0d;
+  --error: #f87171;
 
   --radius-card: 12px;
   --radius-button: 8px;
   --radius-input: 8px;
+}
+
+/* Form controls don't inherit these tokens automatically — without this,
+   every input/select/textarea falls back to the browser's light-mode
+   default (a bright white box) regardless of the theme above. */
+input,
+textarea,
+select {
+  background-color: var(--surface);
+  color: var(--text);
+  border-color: var(--border-strong);
 }
 
 body {

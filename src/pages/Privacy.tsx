@@ -16,7 +16,12 @@ export default function Privacy() {
         </p>
         <p>
           We don&apos;t use analytics. We don&apos;t set cookies. We don&apos;t load anything from
-          other companies&apos; servers. There is no email box and nothing to sign up for.
+          other companies&apos; servers. The one exception is the{" "}
+          <Link to="/contact" className="underline">
+            Contact
+          </Link>{" "}
+          page — it opens your own email app with a message addressed to us; nothing is sent
+          through a server we run.
         </p>
         <p>
           Your answers are kept in your browser&apos;s session memory so you don&apos;t lose them
