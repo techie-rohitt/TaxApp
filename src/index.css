@@ -98,12 +98,64 @@ body {
   transition: color 400ms ease;
 }
 
+/* Scroll-reveal — see components/Reveal.tsx. Starts hidden; IntersectionObserver
+   adds .is-visible the first time it enters the viewport. */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 600ms ease,
+    transform 600ms ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Ambient decorative blobs — see components/BackgroundBlobs.tsx. Purely
+   cosmetic (aria-hidden), a slow drift so pages don't feel static. */
+.blob {
+  animation: blob-float 9s ease-in-out infinite;
+}
+
+.blob-alt {
+  animation: blob-float-alt 11s ease-in-out infinite;
+}
+
+@keyframes blob-float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(12px, -18px) scale(1.06);
+  }
+}
+
+@keyframes blob-float-alt {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-14px, 14px) scale(1.08);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .step-transition,
-  .winner-flip-highlight {
+  .winner-flip-highlight,
+  .blob,
+  .blob-alt {
     animation: none;
   }
   .value-tween {
+    transition: none;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
     transition: none;
   }
   * {

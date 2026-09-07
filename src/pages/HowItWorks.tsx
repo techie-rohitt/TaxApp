@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { BackgroundBlobs } from "../components/BackgroundBlobs";
+import { Reveal } from "../components/Reveal";
 import { BarChartIcon } from "../components/icons";
 import {
   CESS_RATE,
@@ -159,8 +161,10 @@ const SIMPLIFICATIONS = [
 
 export default function HowItWorks() {
   return (
-    <div className="mx-auto flex max-w-[900px] flex-col gap-10 px-4 py-10 sm:px-6 sm:py-12 md:gap-12">
-      <div>
+    <div className="relative mx-auto flex max-w-[900px] flex-col gap-10 px-4 py-10 sm:px-6 sm:py-12 md:gap-12">
+      <BackgroundBlobs className="opacity-60" />
+
+      <Reveal>
         <span className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[var(--accent-soft)]">
           <BarChartIcon width={24} height={24} className="text-[var(--accent)]" />
         </span>
@@ -170,7 +174,7 @@ export default function HowItWorks() {
           2026-27). This page publishes every constant, every rule, and every simplification the
           calculator makes — nothing here is hidden.
         </p>
-      </div>
+      </Reveal>
 
       <section>
         <h2 className="mb-3 text-xl font-semibold">The order we compute in</h2>

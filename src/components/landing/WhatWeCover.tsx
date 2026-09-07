@@ -1,3 +1,4 @@
+import { Reveal } from "../Reveal";
 import { CheckIcon, DashIcon } from "../icons";
 
 const WE_HANDLE = [
@@ -25,7 +26,10 @@ export function WhatWeCover() {
     <section className="mx-auto max-w-[1200px] px-6 py-16 md:py-24">
       <h2 className="mb-10 text-center text-[24px] font-semibold md:mb-12">What we cover</h2>
       <div className="grid gap-6 md:grid-cols-2 md:gap-8">
-        <div className="rounded-[var(--radius-card)] border border-[var(--new-regime)]/30 bg-[var(--new-soft)] p-6 md:p-8">
+        <Reveal
+          as="div"
+          className="rounded-[var(--radius-card)] border border-[var(--new-regime)]/30 bg-[var(--new-soft)] p-6 md:p-8"
+        >
           <h3 className="mb-4 text-sm font-semibold tracking-wide text-[var(--new-regime)] uppercase">
             We handle
           </h3>
@@ -37,8 +41,12 @@ export function WhatWeCover() {
               </li>
             ))}
           </ul>
-        </div>
-        <div className="rounded-[var(--radius-card)] border border-[var(--border)] bg-[var(--surface-sunk)] p-6 md:p-8">
+        </Reveal>
+        <Reveal
+          as="div"
+          delayMs={120}
+          className="rounded-[var(--radius-card)] border border-[var(--border)] bg-[var(--surface-sunk)] p-6 md:p-8"
+        >
           <h3 className="mb-4 text-sm font-semibold tracking-wide text-[var(--text-muted)] uppercase">
             We don&apos;t handle
           </h3>
@@ -50,7 +58,7 @@ export function WhatWeCover() {
               </li>
             ))}
           </ul>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

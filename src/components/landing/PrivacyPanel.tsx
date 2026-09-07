@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
+import { Reveal } from "../Reveal";
 import { LockIcon } from "../icons";
 
 export function PrivacyPanel() {
   return (
     <section className="mx-auto max-w-[1200px] px-4 py-16 sm:px-6 md:py-24">
-      <div className="overflow-hidden rounded-[var(--radius-card)] border border-[var(--border)] bg-[var(--surface)] shadow-[0_1px_2px_rgba(0,0,0,0.04),0_4px_12px_rgba(0,0,0,0.03)]">
+      <Reveal
+        as="div"
+        className="overflow-hidden rounded-[var(--radius-card)] border border-[var(--border)] bg-[var(--surface)] shadow-[0_1px_2px_rgba(0,0,0,0.04),0_4px_12px_rgba(0,0,0,0.03)]"
+      >
         <div className="h-1.5 w-full" style={{ backgroundImage: "var(--brand-gradient)" }} />
         <div className="p-6 sm:p-10 md:p-14">
           <LockIcon width={32} height={32} className="text-[var(--accent)]" />
@@ -24,7 +28,7 @@ export function PrivacyPanel() {
             Read the full privacy note →
           </Link>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

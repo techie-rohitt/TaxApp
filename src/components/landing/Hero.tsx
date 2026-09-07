@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { BackgroundBlobs } from "../BackgroundBlobs";
+import { Reveal } from "../Reveal";
 import { LockIcon } from "../icons";
 import { SampleResultCard } from "./SampleResultCard";
 
@@ -6,8 +8,10 @@ const TRUST_ITEMS = ["Takes about 3 minutes", "No sign-up, no email", "Runs enti
 
 export function Hero() {
   return (
-    <section className="mx-auto flex max-w-[1200px] flex-col items-center gap-10 px-4 py-12 sm:px-6 sm:py-16 md:min-h-[85vh] md:flex-row md:items-center md:gap-12 md:py-0">
-      <div className="md:w-[55%]">
+    <section className="relative mx-auto flex max-w-[1200px] flex-col items-center gap-10 px-4 py-12 sm:px-6 sm:py-16 md:min-h-[85vh] md:flex-row md:items-center md:gap-12 md:py-0">
+      <BackgroundBlobs />
+
+      <Reveal as="div" className="md:w-[55%]">
         <span className="inline-block rounded-full border border-[var(--border-strong)] px-3 py-1 text-xs font-medium text-[var(--text-muted)]">
           FY 2025-26 · AY 2026-27 · Updated for Budget 2025
         </span>
@@ -46,11 +50,11 @@ export function Hero() {
             </li>
           ))}
         </ul>
-      </div>
+      </Reveal>
 
-      <div className="md:w-[45%]">
+      <Reveal as="div" delayMs={150} className="md:w-[45%]">
         <SampleResultCard />
-      </div>
+      </Reveal>
     </section>
   );
 }

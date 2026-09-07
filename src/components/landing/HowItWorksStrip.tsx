@@ -1,3 +1,5 @@
+import { Reveal } from "../Reveal";
+
 const STEPS = [
   {
     title: "Tell us your salary",
@@ -23,13 +25,13 @@ export function HowItWorksStrip() {
           aria-hidden="true"
         />
         {STEPS.map((step, i) => (
-          <div key={step.title} className="relative text-center md:text-left">
+          <Reveal key={step.title} delayMs={i * 120} className="relative text-center md:text-left">
             <div className="relative z-10 mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-[var(--accent)] font-semibold text-white md:mx-0">
               {i + 1}
             </div>
             <h3 className="mt-4 text-[20px] font-semibold">{step.title}</h3>
             <p className="mt-2 text-[var(--text-muted)]">{step.copy}</p>
-          </div>
+          </Reveal>
         ))}
       </div>
     </section>

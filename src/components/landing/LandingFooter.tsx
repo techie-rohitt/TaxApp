@@ -25,9 +25,6 @@ export function LandingFooter() {
           <Link to="/privacy" className="hover:underline">
             Privacy
           </Link>
-          <Link to="/contact" className="hover:underline">
-            Contact
-          </Link>
           <span>Last updated {LAST_UPDATED}</span>
         </div>
       </div>

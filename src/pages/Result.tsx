@@ -7,7 +7,9 @@ import { buildSuggestions } from "../lib/tax/suggestions";
 import { pickWinner } from "../lib/tax/verdict";
 import { AGE_LABELS } from "../content/ageLabels";
 import { DISCLAIMER_PARAGRAPHS } from "../content/disclaimer";
+import { BackgroundBlobs } from "../components/BackgroundBlobs";
 import { OutOfScopeBanner } from "../components/OutOfScopeBanner";
+import { Reveal } from "../components/Reveal";
 import { ComparisonTable } from "../components/result/ComparisonTable";
 import { ExplanationSection } from "../components/result/ExplanationSection";
 import { NextSteps } from "../components/result/NextSteps";
@@ -31,24 +33,38 @@ export default function Result() {
   const suggestions = buildSuggestions(inputs);
 
   return (
-    <div className="mx-auto flex max-w-[1000px] flex-col gap-12 px-4 py-10 sm:px-6 sm:py-12 md:gap-16">
+    <div className="relative mx-auto flex max-w-[1000px] flex-col gap-12 px-4 py-10 sm:px-6 sm:py-12 md:gap-16">
+      <BackgroundBlobs className="opacity-50" />
+
       <OutOfScopeBanner computed={computed} />
 
-      <VerdictCard oldResult={oldResult} newResult={newResult} grossSalary={computed.annualGross} />
+      <Reveal>
+        <VerdictCard oldResult={oldResult} newResult={newResult} grossSalary={computed.annualGross} />
+      </Reveal>
 
-      <ComparisonTable oldResult={oldResult} newResult={newResult} />
+      <Reveal>
+        <ComparisonTable oldResult={oldResult} newResult={newResult} />
+      </Reveal>
 
-      <SlabBreakdownSection
-        oldResult={oldResult}
-        newResult={newResult}
-        ageLabel={AGE_LABELS[computed.ageBand]}
-      />
+      <Reveal>
+        <SlabBreakdownSection
+          oldResult={oldResult}
+          newResult={newResult}
+          ageLabel={AGE_LABELS[computed.ageBand]}
+        />
+      </Reveal>
 
-      <ExplanationSection explanation={explanation} />
+      <Reveal>
+        <ExplanationSection explanation={explanation} />
+      </Reveal>
 
-      <SuggestionsSection suggestions={suggestions} />
+      <Reveal>
+        <SuggestionsSection suggestions={suggestions} />
+      </Reveal>
 
-      <NextSteps winner={winner} />
+      <Reveal>
+        <NextSteps winner={winner} />
+      </Reveal>
 
       <footer className="space-y-3 border-t border-[var(--border)] pt-6 text-xs text-[var(--text-faint)]">
         {DISCLAIMER_PARAGRAPHS.map((paragraph) => (
