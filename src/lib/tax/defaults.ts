@@ -1,0 +1,66 @@
+import type { WizardInputs } from "./types";
+
+/** The blank-slate shape of every wizard field, before the user has answered anything. */
+export const DEFAULT_WIZARD_INPUTS: WizardInputs = {
+  monthlyInHand: 0,
+  tdsKnowledge: "",
+  monthlyTDS: 0,
+  employerRegime: "unknown",
+  annualBonus: 0,
+  otherTaxableSalary: 0,
+
+  ageBand: "below60",
+  cityType: "",
+  paysProfessionalTax: "",
+  professionalTaxMonthly: 200,
+
+  pfDeducted: "",
+  pfMonthly: 0,
+  pfCappingChoice: "",
+  basicKnown: "",
+  basicMonthly: 0,
+  basicSharePercent: 0.5,
+
+  paysRent: "",
+  monthlyRent: 0,
+  rentPaidWholeYear: "",
+  monthsRentPaid: 12,
+  hasHRAComponent: "",
+  monthlyHRA: 0,
+
+  lifeInsurance: 0,
+  ppf: 0,
+  elss: 0,
+  tuitionFees: 0,
+  taxSavingFD: 0,
+  sukanya: 0,
+  homeLoanPrincipal: 0,
+  stampDuty: 0,
+  nscOther: 0,
+
+  healthPremiumSelf: 0,
+  healthPremiumParents: 0,
+  parentsAreSenior: "",
+  preventiveCheckup: 0,
+  parentsMedicalExpenditure: 0,
+  disabilityDependant: "none",
+  disabilitySelf: "none",
+  specifiedIllnessSpend: 0,
+  illnessPatientIsSenior: false,
+
+  hasHomeLoan: "",
+  propertyUse: "",
+  homeLoanInterestAnnual: 0,
+  hasNPS: "",
+  ownNPS: 0,
+  employerContributesNPS: "",
+  employerNPSMonthly: 0,
+  isGovtEmployee: false,
+
+  savingsInterest: 0,
+  fdInterest: 0,
+  otherIncome: 0,
+  donations: 0,
+  donationRate: "",
+  educationLoanInterest: 0,
+};

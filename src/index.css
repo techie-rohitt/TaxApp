@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+/* Self-hosted per PRD §25.1 — no third-party font requests at runtime. */
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+
+/*
+  Design tokens — PRD §23.2 (colour) and §23.4 (spacing/radius).
+*/
+:root {
+  --bg: #fbfbfa; /* warm off-white, not pure white */
+  --surface: #ffffff;
+  --surface-sunk: #f4f4f2;
+  --border: #e6e5e1;
+  --border-strong: #d3d2cd;
+
+  --text: #1a1a18;
+  --text-muted: #6b6a65;
+  /* Darkened from an earlier #9a9993 (2.86:1 on --surface) to clear WCAG AA's 4.5:1 for normal text. */
+  --text-faint: #77766f;
+
+  --accent: #1f5e4b; /* deep green — money, calm, not fintech-blue */
+  --accent-soft: #e8f1ed;
+  --accent-text: #163f33;
+
+  /* Darkened from an earlier #7c5cbf (4.38:1 on --old-soft) to clear WCAG AA. */
+  --old-regime: #6a49ab;
+  --old-soft: #f1ecfa;
+  --new-regime: #1f5e4b; /* the accent green */
+  --new-soft: #e8f1ed;
+
+  /* Darkened from an earlier #a66300 (4.34:1 on --warn-soft) to clear WCAG AA. */
+  --warn: #8f5500;
+  --warn-soft: #fdf3e3;
+  --error: #b4342b;
+
+  --radius-card: 12px;
+  --radius-button: 8px;
+  --radius-input: 8px;
+}
+
+body {
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(1100px 560px at 8% -8%, var(--accent-soft) 0%, transparent 60%),
+    radial-gradient(900px 480px at 100% 0%, var(--old-soft) 0%, transparent 55%),
+    radial-gradient(1200px 700px at 50% 110%, var(--surface-sunk) 0%, transparent 60%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: var(--text);
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* PRD §23.6 — step transitions and the winner-flip highlight. */
+.step-transition {
+  animation: step-in 240ms ease;
+}
+
+@keyframes step-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.winner-flip-highlight {
+  animation: winner-highlight 1.5s ease;
+}
+
+@keyframes winner-highlight {
+  0% {
+    background-color: var(--accent-soft);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+.value-tween {
+  transition: color 400ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .step-transition,
+  .winner-flip-highlight {
+    animation: none;
+  }
+  .value-tween {
+    transition: none;
+  }
+  * {
+    transition-duration: 0.001ms !important;
+    animation-duration: 0.001ms !important;
+  }
+}
