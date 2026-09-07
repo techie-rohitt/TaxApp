@@ -25,28 +25,34 @@ function SlabTable({ label, result }: { label: string; result: FullTaxResult }) 
         <tbody>
           {result.slabRows.map((row) => (
             <tr key={row.from} className="border-t border-[var(--border)]">
-              <td className="py-1 tabular-nums">
+              <td className="py-1 pr-2 whitespace-nowrap tabular-nums">
                 {row.to === Infinity
                   ? `Above ${formatINR(row.from)}`
                   : `${formatINR(row.from)} – ${formatINR(row.to)}`}
               </td>
-              <td className="py-1 text-right tabular-nums">{(row.rate * 100).toFixed(0)}%</td>
-              <td className="py-1 text-right tabular-nums">{formatINR(row.incomeInSlab)}</td>
-              <td className="py-1 text-right tabular-nums">{formatINR(row.taxInSlab)}</td>
+              <td className="py-1 pl-2 text-right whitespace-nowrap tabular-nums">
+                {(row.rate * 100).toFixed(0)}%
+              </td>
+              <td className="py-1 pl-2 text-right whitespace-nowrap tabular-nums">
+                {formatINR(row.incomeInSlab)}
+              </td>
+              <td className="py-1 pl-2 text-right whitespace-nowrap tabular-nums">
+                {formatINR(row.taxInSlab)}
+              </td>
             </tr>
           ))}
           <tr className="border-t border-[var(--border)]">
             <td colSpan={3} className="py-1 text-[var(--text-muted)]">
               Tax before rebate
             </td>
-            <td className="py-1 text-right tabular-nums">{formatINR(result.taxBeforeRebate)}</td>
+            <td className="py-1 text-right whitespace-nowrap tabular-nums">{formatINR(result.taxBeforeRebate)}</td>
           </tr>
           {result.rebate > 0 ? (
             <tr>
               <td colSpan={3} className="py-1 text-[var(--text-muted)]">
                 Less: Rebate u/s 87A
               </td>
-              <td className="py-1 text-right tabular-nums">−{formatINR(result.rebate)}</td>
+              <td className="py-1 text-right whitespace-nowrap tabular-nums">−{formatINR(result.rebate)}</td>
             </tr>
           ) : null}
           {result.marginalRelief > 0 ? (
@@ -54,7 +60,7 @@ function SlabTable({ label, result }: { label: string; result: FullTaxResult }) 
               <td colSpan={3} className="py-1 text-[var(--text-muted)]">
                 Less: Marginal relief
               </td>
-              <td className="py-1 text-right tabular-nums">
+              <td className="py-1 text-right whitespace-nowrap tabular-nums">
                 −{formatINR(result.marginalRelief)}
               </td>
             </tr>
@@ -63,13 +69,13 @@ function SlabTable({ label, result }: { label: string; result: FullTaxResult }) 
             <td colSpan={3} className="py-1 text-[var(--text-muted)]">
               Health &amp; Education Cess @ 4%
             </td>
-            <td className="py-1 text-right tabular-nums">{formatINR(result.cess)}</td>
+            <td className="py-1 text-right whitespace-nowrap tabular-nums">{formatINR(result.cess)}</td>
           </tr>
           <tr className="border-t border-[var(--border-strong)] font-semibold">
             <td colSpan={3} className="py-1.5">
               TOTAL TAX
             </td>
-            <td className="py-1.5 text-right tabular-nums">{formatINR(result.totalTax)}</td>
+            <td className="py-1.5 text-right whitespace-nowrap tabular-nums">{formatINR(result.totalTax)}</td>
           </tr>
         </tbody>
       </table>

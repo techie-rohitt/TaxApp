@@ -5,7 +5,11 @@ export type RegimeCellValue = number | "not-allowed";
 
 export function RegimeCell({ value }: { value: RegimeCellValue }) {
   if (value === "not-allowed") {
-    return <span className="text-[var(--text-faint)] line-through">Not allowed</span>;
+    return (
+      <span className="text-xs text-[var(--text-faint)] line-through" title="Not allowed in this regime">
+        Not allowed
+      </span>
+    );
   }
   if (value === 0) return <>—</>;
   return <>{value < 0 ? `−${formatINR(Math.abs(value))}` : formatINR(value)}</>;

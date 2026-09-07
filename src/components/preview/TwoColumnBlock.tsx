@@ -36,13 +36,13 @@ export function TwoColumnBlock({ caption, rows }: { caption: string; rows: TwoCo
                   : "border-t border-[var(--border)]"
               }
             >
-              <td className={`py-1.5 ${row.bold ? "" : "text-[var(--text-muted)]"}`}>
+              <td className={`py-1.5 pr-2 ${row.bold ? "" : "text-[var(--text-muted)]"}`}>
                 {row.label}
               </td>
-              <td className="py-1.5 text-right tabular-nums">
+              <td className="py-1.5 text-right whitespace-nowrap tabular-nums">
                 <RegimeCell value={row.old} />
               </td>
-              <td className="py-1.5 text-right tabular-nums">
+              <td className="py-1.5 pl-2 text-right whitespace-nowrap tabular-nums">
                 <RegimeCell value={row.new} />
               </td>
             </tr>

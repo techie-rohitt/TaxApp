@@ -16,17 +16,18 @@ function Row({
 }) {
   return (
     <div
-      className={`grid grid-cols-[1fr_auto_auto] items-baseline gap-x-4 gap-y-1 py-1 ${bold ? "font-semibold" : "text-sm"}`}
+      className={`grid grid-cols-[minmax(0,1fr)_auto_auto] items-start gap-x-2 gap-y-1 py-1 sm:gap-x-4 ${bold ? "font-semibold" : "text-sm"}`}
     >
       <span className={bold ? "" : "text-[var(--text-muted)]"}>{label}</span>
-      <span className="text-right tabular-nums">
-        {old}
-        {badge === "old" ? <span className="ml-1 text-xs text-[var(--old-regime)]">✓ lower</span> : null}
-      </span>
-      <span className="text-right tabular-nums">
-        {newValue}
-        {badge === "new" ? <span className="ml-1 text-xs text-[var(--new-regime)]">✓ lower</span> : null}
-      </span>
+      <span className="text-right whitespace-nowrap tabular-nums">{old}</span>
+      <span className="text-right whitespace-nowrap tabular-nums">{newValue}</span>
+      {badge ? (
+        <span
+          className={`col-span-3 -mt-0.5 text-right text-xs ${badge === "old" ? "text-[var(--old-regime)]" : "text-[var(--new-regime)]"}`}
+        >
+          ✓ {badge === "old" ? "old regime is lower" : "new regime is lower"}
+        </span>
+      ) : null}
     </div>
   );
 }

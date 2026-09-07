@@ -108,13 +108,15 @@ export function ComparisonTable({
               >
                 {row.label}
               </th>
-              <td className="py-2 text-right tabular-nums">
+              <td className="py-2 pl-3 text-right whitespace-nowrap tabular-nums">
                 <RegimeCell value={row.old} />
               </td>
-              <td className="py-2 text-right tabular-nums">
+              <td className="py-2 pl-3 text-right whitespace-nowrap tabular-nums">
                 <RegimeCell value={row.new} />
               </td>
-              <td className="py-2 text-right text-[var(--text-muted)]">{diffText(row)}</td>
+              <td className="py-2 pl-3 text-right whitespace-nowrap text-[var(--text-muted)]">
+                {diffText(row)}
+              </td>
             </tr>
           ))}
         </tbody>
