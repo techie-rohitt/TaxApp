@@ -64,8 +64,10 @@ export default function Contact() {
   }
 
   return (
-    <div className="mx-auto flex max-w-[640px] flex-col gap-6 px-6 py-12">
-      <ChatBubbleIcon width={32} height={32} className="text-[var(--accent)]" />
+    <div className="mx-auto flex max-w-[640px] flex-col gap-6 px-4 py-10 sm:px-6 sm:py-12">
+      <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--accent-soft)]">
+        <ChatBubbleIcon width={24} height={24} className="text-[var(--accent)]" />
+      </span>
 
       <div>
         <h1 className="text-[32px] font-semibold">Get in touch</h1>

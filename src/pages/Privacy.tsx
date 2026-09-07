@@ -3,8 +3,10 @@ import { LockIcon } from "../components/icons";
 
 export default function Privacy() {
   return (
-    <div className="mx-auto flex max-w-[700px] flex-col gap-6 px-6 py-12">
-      <LockIcon width={32} height={32} className="text-[var(--accent)]" />
+    <div className="mx-auto flex max-w-[700px] flex-col gap-6 px-4 py-10 sm:px-6 sm:py-12">
+      <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--accent-soft)]">
+        <LockIcon width={24} height={24} className="text-[var(--accent)]" />
+      </span>
 
       <h1 className="text-[32px] font-semibold">Nothing you type here leaves your device.</h1>
 

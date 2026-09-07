@@ -7,50 +7,42 @@
 
 /*
   Design tokens — PRD §23.2 (colour) and §23.4 (spacing/radius).
-  Dark theme: the whole app is built on these custom properties (no
-  hardcoded Tailwind color utilities anywhere), so switching the palette
-  here is enough to re-skin every page and component.
+  Back to a light theme (the dark palette didn't land well) — richer and
+  more saturated than the original flat neutrals, but still light. The
+  whole app draws its colors from these custom properties (no hardcoded
+  Tailwind color utilities anywhere), so this one block re-skins every
+  page and component.
 */
 :root {
-  color-scheme: dark;
+  --bg: #fbfaf6; /* warm off-white, not pure white */
+  --surface: #ffffff;
+  --surface-sunk: #f4f2ec;
+  --border: #e7e2d6;
+  --border-strong: #d3cbb8;
 
-  --bg: #0d1210; /* near-black, a hair of green in it */
-  --surface: #171d1a; /* cards sit a step brighter than the page */
-  --surface-sunk: #12181a; /* recessed panels nested inside a card */
-  --border: #262c27;
-  --border-strong: #3a423c;
+  --text: #201f1a;
+  --text-muted: #5f5c52;
+  --text-faint: #746f62;
 
-  --text: #eef1ef;
-  --text-muted: #a3aca6;
-  --text-faint: #8a938c;
+  --accent: #0e7c53; /* richer, more saturated green than before */
+  --accent-soft: #e2f5ec;
+  --accent-text: #0a5c3d;
 
-  --accent: #1f8f63; /* brightened for a dark ground; still the calm green */
-  --accent-soft: #132a1f;
-  --accent-text: #6fd9a8;
+  --old-regime: #7c3aed; /* vivid violet */
+  --old-soft: #f2ebfe;
+  --new-regime: #0e7c53; /* the accent green */
+  --new-soft: #e2f5ec;
 
-  --old-regime: #c4a6f0; /* violet, lightened for a dark ground */
-  --old-soft: #241a33;
-  --new-regime: #6fd9a8; /* the accent green, lightened */
-  --new-soft: #132a1f;
+  --warn: #b45309;
+  --warn-soft: #fdf1de;
+  --error: #c0362c;
 
-  --warn: #f0b93d;
-  --warn-soft: #3a2a0d;
-  --error: #f87171;
+  /* Used for hero-style banners and the site header wordmark. */
+  --brand-gradient: linear-gradient(120deg, #0e7c53 0%, #14966a 45%, #7c3aed 130%);
 
   --radius-card: 12px;
   --radius-button: 8px;
   --radius-input: 8px;
-}
-
-/* Form controls don't inherit these tokens automatically — without this,
-   every input/select/textarea falls back to the browser's light-mode
-   default (a bright white box) regardless of the theme above. */
-input,
-textarea,
-select {
-  background-color: var(--surface);
-  color: var(--text);
-  border-color: var(--border-strong);
 }
 
 body {
@@ -65,6 +57,7 @@ body {
   font-family: "Inter", system-ui, sans-serif;
   font-size: 16px;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 :focus-visible {

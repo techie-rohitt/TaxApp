@@ -6,7 +6,7 @@ const TRUST_ITEMS = ["Takes about 3 minutes", "No sign-up, no email", "Runs enti
 
 export function Hero() {
   return (
-    <section className="mx-auto flex min-h-[90vh] max-w-[1200px] flex-col items-center gap-12 px-6 py-16 md:min-h-screen md:flex-row md:items-center md:py-0">
+    <section className="mx-auto flex max-w-[1200px] flex-col items-center gap-10 px-4 py-12 sm:px-6 sm:py-16 md:min-h-[85vh] md:flex-row md:items-center md:gap-12 md:py-0">
       <div className="md:w-[55%]">
         <span className="inline-block rounded-full border border-[var(--border-strong)] px-3 py-1 text-xs font-medium text-[var(--text-muted)]">
           FY 2025-26 · AY 2026-27 · Updated for Budget 2025

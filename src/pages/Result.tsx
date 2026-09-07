@@ -31,7 +31,7 @@ export default function Result() {
   const suggestions = buildSuggestions(inputs);
 
   return (
-    <div className="mx-auto flex max-w-[1000px] flex-col gap-16 px-6 py-12">
+    <div className="mx-auto flex max-w-[1000px] flex-col gap-12 px-4 py-10 sm:px-6 sm:py-12 md:gap-16">
       <OutOfScopeBanner computed={computed} />
 
       <VerdictCard oldResult={oldResult} newResult={newResult} grossSalary={computed.annualGross} />

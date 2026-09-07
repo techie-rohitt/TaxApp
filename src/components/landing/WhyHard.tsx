@@ -21,11 +21,16 @@ const ITEMS: { icon: ComponentType<SVGProps<SVGSVGElement>>; heading: string; co
 
 export function WhyHard() {
   return (
-    <section className="mx-auto max-w-[1200px] px-6 py-24">
-      <div className="grid gap-10 md:grid-cols-3">
+    <section className="mx-auto max-w-[1200px] px-6 py-16 md:py-24">
+      <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 md:gap-10">
         {ITEMS.map(({ icon: Icon, heading, copy }) => (
-          <div key={heading}>
-            <Icon width={28} height={28} className="text-[var(--accent)]" />
+          <div
+            key={heading}
+            className="rounded-[var(--radius-card)] border border-[var(--border)] bg-[var(--surface)] p-6"
+          >
+            <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--accent-soft)]">
+              <Icon width={24} height={24} className="text-[var(--accent)]" />
+            </span>
             <h3 className="mt-4 text-[20px] font-semibold">{heading}</h3>
             <p className="mt-2 text-[var(--text-muted)]">{copy}</p>
           </div>

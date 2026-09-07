@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { BarChartIcon } from "../components/icons";
 import {
   CESS_RATE,
   EPF_EMPLOYEE_RATE,
@@ -158,9 +159,12 @@ const SIMPLIFICATIONS = [
 
 export default function HowItWorks() {
   return (
-    <div className="mx-auto flex max-w-[900px] flex-col gap-12 px-6 py-12">
+    <div className="mx-auto flex max-w-[900px] flex-col gap-10 px-4 py-10 sm:px-6 sm:py-12 md:gap-12">
       <div>
-        <h1 className="text-[32px] font-semibold">How we calculate your tax</h1>
+        <span className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[var(--accent-soft)]">
+          <BarChartIcon width={24} height={24} className="text-[var(--accent)]" />
+        </span>
+        <h1 className="text-[28px] font-semibold sm:text-[32px]">How we calculate your tax</h1>
         <p className="mt-2 text-[var(--text-muted)]">
           Rules as per the Income-tax Act, 1961 and the Finance Act, 2025, for FY 2025-26 (AY
           2026-27). This page publishes every constant, every rule, and every simplification the
